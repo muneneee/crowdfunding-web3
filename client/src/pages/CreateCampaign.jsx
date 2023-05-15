@@ -22,7 +22,10 @@ const CreateCampaign = () => {
     setForm({ ...form, [fieldName]: e.target.value })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(form);
 
   }
 
