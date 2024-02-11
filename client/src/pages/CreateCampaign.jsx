@@ -10,7 +10,7 @@ import { useStateContext } from '../context';
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [ createCampaign ] = useStateContext();
+  const { createCampaign } = useStateContext();
   const [form, setForm] = useState({
     name: '',
     title: '',
@@ -28,7 +28,7 @@ const CreateCampaign = () => {
     e.preventDefault();
 
     checkIfImage(form.image, async (exists) => {
-      if (exists) {
+      if(exists) {
         setIsLoading(true)
         await createCampaign({...form, target: ethers.utils.parseUnits(form.target, 18)})
         setIsLoading(false);
